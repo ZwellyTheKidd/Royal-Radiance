@@ -1,0 +1,29 @@
+.cart-container {
+    margin: 0;
+    display: flex;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.product {
+    float: left;
+    width: 65%;
+    padding: 50px;
+}
+
+.product a {
+    text-decoration: none;
+    color: black;
+}
+
+.product a:hover {
+    color: #64C5AE;;
+}
+
+.payment {
+    float: right;
+    width: 35%;
+    height: 100vh;
+    background-color: rgb(176, 176, 176);
+    padding: 50px;
+}
