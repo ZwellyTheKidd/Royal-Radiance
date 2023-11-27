@@ -6,6 +6,7 @@
     gap: 2em;
     padding-inline: 5em;
     margin-top: .4em;
+    margin-bottom: 6em;
 }
 
 .numProducts {
@@ -81,10 +82,18 @@
 /* Add custom styles in your component's CSS file */
 
 .card {
+    
     box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
     -webkit-box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
     -moz-box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
 }
+.scale-on-hover {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .scale-on-hover:hover {
+    transform: scale(1.1);
+  }
 
 .card-img-wrapper {
     height: 200px;
@@ -103,6 +112,7 @@
 
 .card-body {
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 1em;
@@ -116,7 +126,14 @@
     overflow: hidden;
     white-space: normal;
   }
+  .card-title{
+    color: #5B5A5C;
+    font-weight: 500;
+    font-size: small;
+  }
   
 .card-price{
-    
+    color: black;
+    font-weight: 700;
+    font-size: large;
 }

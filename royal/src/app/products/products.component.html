@@ -17,9 +17,10 @@
                 <!-- Dropdown content -->
                 <div class="dropdown-content">
                     <!-- Dropdown items (replace these with your categories) -->
-                    <a href="#">Category 1</a>
-                    <a href="#">Category 2</a>
-                    <a href="#">Category 3</a>
+                    <a href="#">men's clothing</a>
+                    <a href="#">women's clothing</a>
+                    <a href="#">jewelery</a>
+                    <a href="#">electronics</a>
                     <!-- Add more categories as needed -->
                 </div>
             </div>
@@ -49,12 +50,12 @@
         <div class="row">
           <div class="col-md-3" *ngFor="let product of products">
             <!-- Your content for each div goes here -->
-            <div class="card h-100">
-                <div class="card-img-wrapper"><img src={{product.image}} alt="" class="card-img-top img-fluid"></div>
+            <div class="card h-100 ">
+                <div class="card-img-wrapper scale-on-hover"><img src={{product.image}} alt="" class="card-img-top img-fluid"></div>
                     
               <div class="card-body ">
-                <p class="card-title truncate-text">{{ product.title }}</p>
-                <p class="card-price">R{{ product.price }}</p>
+                <p class="card-title truncate-text">{{ product.category }}</p>
+                <p class="card-price">R {{ (product.price * 18.81).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</p>
               </div>
 
             </div>

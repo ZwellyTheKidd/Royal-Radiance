@@ -16,7 +16,7 @@
     overflow: hidden;
 }
 .navBar .navUp img{
-    height: 5.5em;
+    height: 5.7em;
 }
 .icons-nav{
     display: flex;
@@ -26,6 +26,10 @@
 .icons-nav svg{
    height: 2em;
    width: 2em;
+}
+.icons-nav svg:hover{
+    height: 2.1em;
+    width: 2.1em;
 }
 
 
