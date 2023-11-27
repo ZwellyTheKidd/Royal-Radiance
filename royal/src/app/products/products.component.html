@@ -1,0 +1,67 @@
+<div class="products-body">
+
+
+    <div class="head">
+        <div class="numProducts">
+            50 items Selected
+        </div>
+
+        <div class="selectView">
+            <div class="dropdown">
+                <!-- Dropdown button -->
+                <button class="dropdown-button">Select Category <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg></button>
+                <!-- Dropdown content -->
+                <div class="dropdown-content">
+                    <!-- Dropdown items (replace these with your categories) -->
+                    <a href="#">Category 1</a>
+                    <a href="#">Category 2</a>
+                    <a href="#">Category 3</a>
+                    <!-- Add more categories as needed -->
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <!-- Dropdown button -->
+                <button class="dropdown-button">Sort by <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg></button>
+                <!-- Dropdown content -->
+                <div class="dropdown-content">
+                    <!-- Dropdown items (replace these with your categories) -->
+                    <a href="#">Category 1</a>
+                    <a href="#">Category 2</a>
+                    <a href="#">Category 3</a>
+                    <!-- Add more categories as needed -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-3" *ngFor="let product of products">
+            <!-- Your content for each div goes here -->
+            <div class="card h-100">
+                <div class="card-img-wrapper"><img src={{product.image}} alt="" class="card-img-top img-fluid"></div>
+                    
+              <div class="card-body ">
+                <p class="card-title truncate-text">{{ product.title }}</p>
+                <p class="card-price">R{{ product.price }}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+</div>

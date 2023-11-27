@@ -1,1 +1,19 @@
 <app-header/>
+<app-products/>
+
+<!-- app.component.html -->
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let item of items">
+        <!-- Your content for each div goes here -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
