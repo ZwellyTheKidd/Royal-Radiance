@@ -100,3 +100,6 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
+ul img{
+    height: 6em;
+}
