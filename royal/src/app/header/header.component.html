@@ -64,3 +64,14 @@
         </div>
     </div>
 </div>
+
+
+<ul class="products">
+    <li *ngFor="let product of products">
+        <img src={{product.image}} alt="">
+      <a routerLink="/detail/{{product.id}}">
+        <span class="badge">{{product.id}}</span> {{product.title}}  R{{product.price}}
+      </a>
+      
+    </li>
+  </ul>
