@@ -10,8 +10,7 @@ import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    CartComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
