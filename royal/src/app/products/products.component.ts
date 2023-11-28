@@ -19,20 +19,14 @@ export class ProductsComponent {
     this.getProducts();
   }
 
-  // getProducts(): void {
-  //   this.productService.getProducts()
-  //   .subscribe(products => this.products = products);
-  // }
   getProducts(): void {
     this.productService.getProducts()
       .subscribe(products => {
         console.log('Product Data:', products);
   
-        // Assuming the response is an array of products directly
         if (Array.isArray(products)) {
           this.products = products;
         } else {
-          // Handle the case where the response is not an array
           console.error('Invalid response format. Expected an array of products.');
         }
       });

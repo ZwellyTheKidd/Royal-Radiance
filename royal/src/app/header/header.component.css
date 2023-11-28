@@ -53,3 +53,53 @@
     margin-top: .3em;
     border-radius: 5px;
 }
+
+
+
+
+/* titleSearch private styles */
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+  
+  }
+  .search-product{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2em;   
+  }
+
+  input:focus {
+    outline: #336699 auto 1px;
+  }
+  
+  li {
+    list-style-type: none;
+    width: 100%;
+  }
+  .search-result li a {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    display: inline-block;
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .search-result li a:hover {
+    background-color: #435A60;
+    color: white;
+  }
+  
+  ul.search-result {
+    margin-top: 0;
+    padding-left: 0;
+  }
