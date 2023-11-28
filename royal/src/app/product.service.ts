@@ -34,6 +34,24 @@ export class ProductService {
       catchError(this.handleError<Product | Product[]>(`getProduct id=${id}`))
     );
   }
+
+  searchProduct(searchTerm?: string): Observable<Product[]> {
+    let url = this.productURL;
+  
+    // Append the search term to the URL if provided
+    if (searchTerm) {
+      url += `/search?q=${searchTerm}`;
+    }
+  
+    return this.http.get<any>(url)
+      .pipe(
+        map(response => response.products),
+        tap(_ => this.log(`fetched products${searchTerm ? ' for ' + searchTerm : ''}`)),
+        catchError(this.handleError<Product[]>('searchProduct', []))
+      );
+  }
+  
+  
   
 
 

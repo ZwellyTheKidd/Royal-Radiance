@@ -20,18 +20,19 @@
 
     <div class="navDown">
 
-        <div id="search-product" class="search-product">
-           <input #searchBox placeholder="Search for Product..." id="search-box" />
-        
-            <!-- <div class="result">
-                <ul class="search-result">
-                    <li *ngFor="let hero of heroes$ | async" >
-                      <a routerLink="/detail/{{hero.id}}">
-                        {{hero.name}}
-                      </a>
-                    </li>
-                  </ul>
-            </div> -->
+      <div id="search-product" class="search-product">
+        <input #searchBox (input)="searchProduct(searchBox.value)" placeholder="Search for Product..." id="search-box" />
+        <div class="result" *ngIf="products.length > 0">
+          <ul class="search-result">
+            <li *ngFor="let product of products">
+              {{ product.title }}
+            </li>
+          </ul>
         </div>
+      </div>
+      
+      
     </div>
+
+
 </div>
