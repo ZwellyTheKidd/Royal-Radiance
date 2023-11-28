@@ -18,13 +18,6 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  // getProducts(): Observable<Product[]> {
-  //   return this.http.get<Product[]>(this.productURL)
-  //     .pipe(
-  //       tap(_ => this.log('fetched products')), // Updated log message
-  //       catchError(this.handleError<Product[]>('getProducts', []))
-  //     );
-  // }
   getProducts(): Observable<Product[]> {
     return this.http.get<any>(this.productURL) // Use 'any' as the type for the response
       .pipe(
