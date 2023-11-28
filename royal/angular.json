@@ -25,6 +25,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
@@ -90,13 +92,19 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           }
         }
       }
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "847eb730-aa2a-446f-972f-ed6188140fc5"
+=======
+    "analytics": "83566332-f7ae-4059-bc8b-d7956f0c3f43"
+>>>>>>> origin/zwelly
   }
 }
