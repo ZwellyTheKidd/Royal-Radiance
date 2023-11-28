@@ -1,9 +1,27 @@
+/* *{
+margin: 0;
+padding: 0;
+font-family: 'Poppins' , sans-serif;
+box-sizing: border-box;
+
+
+} */
+
+
 .login-container{
 
-    margin: 0;
+    margin-top:  10rem;
     padding: 50px;
-    color: blue;
+    /* padding: 0; */
+    font-family: 'Poppins' , sans-serif;
+    /* box-sizing: border-box; */
+    justify-content: center;
+    background-color: #64C5AE;; 
+    box-shadow: #64C5AE;  
+    display: inline-block;
+    margin-left: 30rem;
     
+
 }
 .input{
 
@@ -32,7 +50,10 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    cursor: pointer;
 
 }
+button:hover{
+    background-color:blue;
 
+    
+}
