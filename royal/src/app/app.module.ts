@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { CartComponent } from './cart/cart.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +18,25 @@ import { CartComponent } from './cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+// import { FormsModule } from '@angular/forms';
+
+// @NgModule({
+//   // ...
+//   imports: [
+//     // ...
+//     FormsModule,
+//   ],
+//   // ...
+// })
+// export class AppModule { }
+

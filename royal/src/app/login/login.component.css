@@ -1,0 +1,38 @@
+.login-container{
+
+    margin: 0;
+    padding: 50px;
+    color: blue;
+    
+}
+.input{
+
+    color: black;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+}
+.inputs{
+
+    color: black;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.Login-Button{
+
+    color: black;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+
+}
+
