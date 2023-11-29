@@ -12,11 +12,13 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { UserComponent } from './user/user.component';
 import { CartComponent } from './cart/cart.component';
 import { RegisterComponent } from './register/register.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
