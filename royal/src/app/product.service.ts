@@ -39,12 +39,6 @@ export class ProductService {
       catchError(this.handleError<Product | Product[]>(`getProduct id=${id}`))
     );
   }
-  
-
-
-
-
-  
 
   private log(message: string): void {
     console.log(message);

@@ -1,8 +1,7 @@
 // login.component.ts
 import { Component, OnInit } from '@angular/core';
-
-
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
 
 
 @Component({
@@ -10,25 +9,39 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  formGroup!: FormGroup;
 
-  username: string = '';
-  password: string = '';
+  constructor(private authService:AuthenticationService){
+  }
+
+  ngOnInit(){
+    this.initForm()
+  }
+
+  initForm() {
+    this.formGroup = new FormGroup({
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+    });
+  }
+
+  login(){
+    if (this.formGroup.valid) {
+      this.authService.login(this.formGroup.value).subscribe(result=>{
+        if(result.success){
+          console.log('result')
+          alert(result.message);
+        }else{
+          alert(result.message);
+        }
+      })
+    }
+  }
 
   
 
-  login() {
-    // Implement your authentication logic here
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-
-
-
-    // For a real application, you would typically call a service to handle authentication
-    // and navigate to a different route upon successful login.
-  }
-
-
+  
 }
 
 

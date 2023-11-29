@@ -10,8 +10,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 app.use(cookieParser());
 app.use(cors({
-    credentials:true,
-    origin:['http://localhost:4200']
+    credentials: true,
+    origin: ['http://localhost:4200']
 }));
 app.use(express.json());
 
@@ -31,16 +31,16 @@ app.listen(5038, () => {
         database = client.db(DATABASE_NAME);
         collection = database.collection("royalcollection");
         console.log("connection to the database successful");
-   
 
-// get method - get from database
+
+        // get method - get from database
         app.get('/api/royalapp/getusers', (request, response) => {
             collection.find({}).toArray((error, result) => {
                 response.send(result);
             });
         });
 
-    //  register user  to the database
+        //  register user  to the database
         app.post('/api/royalapp/register', multer().none(), async (request, response) => {
             collection.countDocuments({}, async (error, numOfDocs) => {
                 const salt = await bcrypt.genSalt(10);
@@ -57,45 +57,45 @@ app.listen(5038, () => {
             });
         });
 
-    //  login user  to the database
-    
-        app.post('/api/royalapp/login', multer().none(), async (request, response) => {
+        //  login user  to the database
+
+        app.post('/api/royalapp/login', multer().none(), async (request, response) => {` `
             console.log('Login route reached'); // Add this line
-        
+
             try {
                 const user = await collection.findOne({ email: request.body.email });
 
-        if (!user) {
-            return response.status(404).send({
-                message: 'User not found'
-            });
-        }
+                if (!user) {
+                    return response.status(404).send({
+                        message: 'User not found'
+                    });
+                }
 
-        const passwordMatch = await bcrypt.compare(request.body.password, user.password);
+                const passwordMatch = await bcrypt.compare(request.body.password, user.password);
 
-        if (!passwordMatch) {
-            return response.status(401).send({
-                message: 'Invalid credentials'
-            });
-        }
+                if (!passwordMatch) {
+                    return response.status(401).send({
+                        message: 'Invalid credentials'
+                    });
+                }
 
-        // Send the user data without the password
-        const { password, ...userData } = user;
+                // Send the user data without the password
+                const { password, ...userData } = user;
 
-        // const token = jwt.sign({ id: userData.id }, process.env.JWT_SECRET);
-        const token = jwt.sign({ id: userData.id },"secret");
+                // const token = jwt.sign({ id: userData.id }, process.env.JWT_SECRET);
+                const token = jwt.sign({ id: userData.id }, "secret");
 
-        response.cookie('jwt', token,{
-            httpOnly: true,
-            maxAge:24 * 60 * 60 * 1000
-        })
+                response.cookie('jwt', token, {
+                    httpOnly: true,
+                    maxAge: 24 * 60 * 60 * 1000
+                })
 
-    
 
-        response.send({
-            message: 'Login successful',
-        });
-        
+
+                response.send({
+                    message: 'Login successful',
+                });
+
             } catch (error) {
                 console.error("Error during login:", error);
                 response.status(500).send({
@@ -103,35 +103,43 @@ app.listen(5038, () => {
                 });
             }
         });
-        
-     //  authicated users 
+
+        //  authicated users 
         app.get('/api/royalapp/user', async (request, response) => {
-           const cookie=request.cookies['jwt']
+            try {
+                const cookie = request.cookies['jwt']
 
-           const claims = jwt.verify(cookie,"secret")
+                const claims = jwt.verify(cookie, "secret")
 
-           if (!claims) {
-            return response.status(401).send({
-                message: 'Unauthorized'
+                if (!claims) {
+                    return response.status(401).send({
+                        message: 'Unauthorized'
+                    });
+                }
+
+                const user = await collection.findOne({ id: claims.id });
+                const { password, ...userData } = await user;
+
+                response.send(userData)
+
+            } catch (error) {
+                return response.status(401).send({
+                    message: 'Unauthorized'
+                });
+            }
+
+        });
+
+
+        //  logout user
+        app.post('/api/royalapp/logout', (request, response) => {
+            response.cookie('jwt', '', { maxAge: 0 })
+
+            response.send({
+                message: 'Logout successful',
             });
-           }
 
-           const user=await collection.findOne({id:claims.id});
-           const {password, ...userData}=await user;
-
-           response.send(userData)
-        });
-
-
-     //  logout user
-     app.post('/api/royalapp/logout',(request, response) => {
-        response.cookie('jwt','',{maxAge:0})
-
-        response.send({
-            message: 'Logout successful',
-        });
-
-     })
+        })
 
 
 
@@ -141,6 +149,6 @@ app.listen(5038, () => {
 
 
 
-        
+
     });
 })
