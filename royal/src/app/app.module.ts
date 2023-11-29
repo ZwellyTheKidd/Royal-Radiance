@@ -13,7 +13,7 @@ import { UserComponent } from './user/user.component';
 import { CartComponent } from './cart/cart.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component'; 
 
 
@@ -34,7 +34,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     FormsModule,
     AppRoutingModule,
     NgbModule,
-  
+    ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule

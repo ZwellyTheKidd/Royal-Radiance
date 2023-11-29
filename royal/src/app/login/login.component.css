@@ -1,59 +1,31 @@
-/* *{
-margin: 0;
-padding: 0;
-font-family: 'Poppins' , sans-serif;
-box-sizing: border-box;
-
-
-} */
-
-
-.login-container{
-
-    margin-top:  10rem;
-    padding: 50px;
-    /* padding: 0; */
-    font-family: 'Poppins' , sans-serif;
-    /* box-sizing: border-box; */
-    justify-content: center;
-    background-color: #64C5AE;; 
-    box-shadow: #64C5AE;  
-    display: inline-block;
-    margin-left: 30rem;
-    
-
-}
-.input{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
+.container{
     display: flex;
     justify-content: center;
-    gap: 10px;
-    
+    align-items: center;
+    height: 100vh;
+   
 }
-.inputs{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
+.card{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    padding-inline: 2em;
 }
-.Login-Button{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
+.card-body{
+    justify-content: center;
     display: flex;
-    justify-content: center;
-    gap: 10px;
-
+    flex-direction: column;
+    margin-top: -2em;
 }
-button:hover{
-    background-color:blue;
-
-    
+.img-container{
+    height: 10em;
+    overflow: hidden;
+}
+.card-img-top {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: auto;
 }
