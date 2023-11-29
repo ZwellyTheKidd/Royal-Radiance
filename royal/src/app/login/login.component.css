@@ -17,6 +17,9 @@
     flex-direction: column;
     margin-top: -2em;
 }
+.card-title{
+    font-weight: 700;
+}
 .img-container{
     height: 10em;
     overflow: hidden;
