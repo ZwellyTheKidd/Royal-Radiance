@@ -13,7 +13,9 @@ import { UserComponent } from './user/user.component';
 import { CartComponent } from './cart/cart.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { SignUpComponent } from './sign-up/sign-up.component'; 
+
 
 
 
@@ -23,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ProductsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpComponent
 
   ],
   imports: [
