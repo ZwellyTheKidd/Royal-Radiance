@@ -19,6 +19,8 @@
 }
 .card-title{
     font-weight: 700;
+    display: flex;
+    justify-content: flex-end;
 }
 .img-container{
     height: 10em;
