@@ -1,215 +1,36 @@
-/* .register-container{ 
-    display: flex;
-    margin-top: 10rem; 
-    padding: 50px;
-    font-family: 'Poppins' , sans-serif;
-    display: flex;
-    justify-content: center;
-    background-color: #64C5AE;; 
-    box-shadow: #64C5AE;  
-    display: flex;
-    margin-left: 60rem;   
-    max-width: fit-content; 
-}
-
-.registerForm {
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+   
 }
-.fname{
-
-    color:black;
-    margin: 5px;
-    padding: 5px;
+.card{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 5px;
-
+    padding-inline: 2em;
 }
-
-.lname{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
+.card-body{
+    justify-content: center;
     display: flex;
-    justify-content: center;
-    gap: 5px;
-
+    flex-direction:column;
+    margin-top: -2em;
 }
-
-.email{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
+.card-title{
+    font-weight: 700;
     display: flex;
-    justify-content: center;
-    gap: 5px;
-
+    justify-content: flex-end;
 }
-.password{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
-    gap: 5px;
-
+.img-container{
+    height: 10em;
+    overflow: hidden;
 }
-
-
-
-.register-container{
-
-    margin: 0;
-    padding: 50px; 
-}
-.heading{
-
-    color: black;
-    display: flex;
-    justify-content: center;
-}
-.fname{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    
-}
-.lname{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-.email{
-
-    color: black;
-    margin: 5px;
-    padding-left: 3rem;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    
-
-}
-.password{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-
-
-}
-
-.register-button{
-
-    color: black;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-
-}
-button:hover{
-    background-color:blue;
-    
-  }
-
- */
-/* .p{
-
-    display: flex;
-    justify-content: center;
-    background-color: blue;
-} */
-
-.register-container{
-
-    /* background-color:#64C5AE;
-    display: flex;
-    justify-content: center; */
-
-    margin-top:  10rem;
-    padding: 50px;
-    /* padding: 0; */
-    font-family: 'Poppins' , sans-serif;
-    /* box-sizing: border-box; */
-    justify-content: center;
-    background-color: #64C5AE;; 
-    box-shadow: #64C5AE;  
-    display: inline-block;
-    margin-left: 30rem;
-}
-
-.fname{
-
-    color: blueviolet;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-family: 'Poppins' , sans-serif;
-}
-.lname{
-
-    color: blueviolet;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-family: 'Poppins' , sans-serif;
-}
-
-.email{
-    color: blueviolet;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-family: 'Poppins' , sans-serif;
-    margin-left: 2.5rem;
-}
-.password{
-
-    color: blueviolet;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-family: 'Poppins' , sans-serif;
-}
-.register-button{
-
-    color: blueviolet;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-family: 'Poppins' , sans-serif;
-}
-button:hover{
-    background-color:blue;
-
-    
+.card-img-top {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: auto;
 }

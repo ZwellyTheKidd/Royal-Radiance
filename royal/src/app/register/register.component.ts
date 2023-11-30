@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RegisterService } from '../services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -7,19 +10,36 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
-  firstName: string = '';
-  lastName: string = '';
-  email : string = '';
-  password : string = '';
 
+  formGroup!: FormGroup;
 
-  onRegister(): void {
-    // Add your registration logic here
-    console.log('First Name:', this.firstName);
-    console.log('Last Name:', this.lastName);
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    // You can perform registration logic here
+  constructor(private registerService:RegisterService){
   }
+
+  ngOnInit(){
+    this.initForm()
+  }
+
+  initForm() {
+    this.formGroup = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+    });
+  }
+
+  register(){
+    if (this.formGroup.valid) {
+      this.registerService.register(this.formGroup.value).subscribe(result=>{
+        if(result.success){
+          console.log(result)
+          alert(result.message);
+        }else{
+          alert(result.message);
+        }
+      })
+    }
+  }
+
 
 }
