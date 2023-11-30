@@ -53,13 +53,16 @@ app.listen(5038, () => {
                     password: hashedPassword, // Use the hashed password
                 });
 
-                response.send("User registered successfully");
+
+                const successMessage = "User registered successfully";
+                response.send({ success: true, message: successMessage });
             });
         });
 
         //  login user  to the database
 
-        app.post('/api/royalapp/login', multer().none(), async (request, response) => {` `
+        app.post('/api/royalapp/login', multer().none(), async (request, response) => {
+            ` `
             console.log('Login route reached'); // Add this line
 
             try {
