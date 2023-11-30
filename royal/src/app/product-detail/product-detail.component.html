@@ -1,19 +1,19 @@
 <app-header/>
 <div class="product-detail" *ngIf="product">
     <div class="detail-header">
-        {{product.category}} / {{product.title}}
+        {{product.category}} / {{product.brand}} / {{product.title}}
     </div>
 
 
     <div class="detail-body ">
         <div class="left h-100">
-            <div class="detail-img"><img src={{product.image}}
+            <div class="detail-img"><img src={{product.images[0]}}
                     alt="" class="card-img-top img-fluid"></div>
 
             <div class="detail-description">
-                <div class="prod-t">{{product.title}}</div>
-                <div class="prod-c">{{product.category}}</div>
-                <div class="prod-i">205 Items Left</div>
+                <div class="prod-t">{{product.brand}} : {{product.title}}</div>
+                <div class="prod-c">{{product.description}}</div>
+                <div class="prod-i">Stock : {{product.stock}}</div>
                 <hr>
                 <div class="prod-s">Ships in 4 - 6 work days</div>
                 <hr>
@@ -30,7 +30,7 @@
 
         <div class="right">
             <div class="sale-detail">
-                <div class="prod-price">R {{ (product.price * 18.81).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</div>
+                <div class="prod-price">R {{ (product.price * 16.81).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</div>
                 <div class="prod-delivery">FREE DELIVERY</div>
                 <div class="prod-discount">R R {{ (product.price * 20).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</div>
             </div>

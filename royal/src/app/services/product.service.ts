@@ -10,7 +10,7 @@ import { Product } from '../interface/product';
 })
 export class ProductService {
 
-  private productURL = 'https://fakestoreapi.com/products'; // Corrected URL with protocol
+  private productURL = 'https://dummyjson.com/products'; // Corrected URL with protocol
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,19 +19,14 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productURL)
+    return this.http.get<any>(this.productURL) // Use 'any' as the type for the response
       .pipe(
-        tap(_ => this.log('fetched products')), // Updated log message
+        map(response => response.products), // Extract the 'products' array from the response
+        tap(_ => this.log('fetched products')),
         catchError(this.handleError<Product[]>('getProducts', []))
       );
   }
-  // getProduct(id: number): Observable<Product> {
-  //   const url = `${this.productURL}/${id}`;
-  //   return this.http.get<Product>(url).pipe(
-  //     tap(_ => this.log(`fetched Product id=${id}`)),
-  //     catchError(this.handleError<Product[]>(`getProduct id=${id}`))
-  //   );
-  // }
+  
   getProduct(id: number): Observable<Product | Product[]> {
     const url = `${this.productURL}/${id}`;
     return this.http.get<Product | Product[]>(url).pipe(
@@ -39,6 +34,30 @@ export class ProductService {
       catchError(this.handleError<Product | Product[]>(`getProduct id=${id}`))
     );
   }
+
+  searchProduct(searchTerm?: string): Observable<Product[]> {
+    let url = this.productURL;
+  
+    // Append the search term to the URL if provided
+    if (searchTerm) {
+      url += `/search?q=${searchTerm}`;
+    }
+  
+    return this.http.get<any>(url)
+      .pipe(
+        map(response => response.products),
+        tap(_ => this.log(`fetched products${searchTerm ? ' for ' + searchTerm : ''}`)),
+        catchError(this.handleError<Product[]>('searchProduct', []))
+      );
+  }
+  
+  
+  
+
+
+
+
+  
 
   private log(message: string): void {
     console.log(message);
