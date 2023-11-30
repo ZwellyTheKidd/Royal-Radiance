@@ -67,17 +67,7 @@ export class AuthenticationService {
 
 
 
-  getUser(): Observable<UserData | null> {
-    return this.http.get<{ success: boolean, user: UserData }>(`${this.appURL}/user`).pipe(
-      map(response => response.success ? response.user : null),
-      catchError((error) => {
-        console.error('Error fetching user data:', error);
-        this.router.navigate(['/user/login']);
-        return of(null);
-      })
-    );
-  }
-  
+
 
   
 

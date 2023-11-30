@@ -24,14 +24,15 @@ export class HeaderComponent implements OnInit {
 
   checkUser(): void {
     this.authService.checkUser().subscribe((userData) => {
-      this.userData = userData;
       if (!userData) {
         // Redirect to login page if not authenticated
         this.router.navigate(['user/login']);
+      } else {
+        // Redirect to user page if authenticated
+        this.router.navigate(['user']);
       }
-      this.router.navigate(['user']);
     });
-
   }
+  
 
 }

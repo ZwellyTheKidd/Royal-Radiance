@@ -15,18 +15,8 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser();
+  
   }
 
-  getUser(): void {
-    this.authService.getUser().subscribe((userData) => {
-      if (!userData) {
-        // Redirect to login page if not authenticated
-        // Optionally, you can handle this case in your template as well
-        // and show a message or redirect to the login page.
-      } else {
-        this.userData = userData;
-      }
-    });
-  }
+
 }
