@@ -22,6 +22,8 @@ export class ProductsComponent {
   getProducts(): void {
     this.productService.getProducts()
     .subscribe(products => this.products = products);
+
+    console.log("something");
   }
 
 
