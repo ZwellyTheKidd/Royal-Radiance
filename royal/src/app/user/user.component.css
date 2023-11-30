@@ -21,6 +21,13 @@
   border-radius: 100%;
 }
 
+.list{
+    border: 2px solid grey;
+    width: 45%;
+    margin-left: 2%;
+    background-color:white;
+    border-radius: 2%;
+}
 .icon1 {
   margin: 5%;
   display: flex;
@@ -85,24 +92,23 @@
   margin: 0%;
 }
 
-.footer {
-  border: 2px solid;
-  background-color: #64c5ae;
-  width: 60%;
-  height: 50px;
-  padding: 1px;
-  margin: 5%;
-  box-shadow: 2px 2px #101010;
-  display: flex;
-  gap: 18%;
-  margin-left: 20%;
-}
+
 
 .button1 {
-  margin: 10px;
-  background-color: #64c5ae;
-}
-
+    margin: 20px;
+    margin-top:0%;
+    margin-bottom: 10%;
+    margin-left: 2%;
+    color: #64c5ae;
+    background-color: #64c5ae;
+    border: 2px solid whitesmoke;
+    width: 3%;
+    height: 5%;
+ border-radius: 9%;
+    align-items: center;
+    padding: 5px;
+    
+  }
 .button2 {
   margin: 10px;
   background-color: #64c5ae;
@@ -121,4 +127,8 @@
 .button5 {
   margin: 10px;
   background-color: #64c5ae;
+}
+
+.iconedit{
+    margin-left: 4%;
 }

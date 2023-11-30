@@ -5,7 +5,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { CartComponent } from './cart/cart.component'
 import { LoginComponent } from './login/login.component'
 import { ProductComponent } from './product/product.component';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from '../app/user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { EditComponent } from "./edit/edit.component";
 
