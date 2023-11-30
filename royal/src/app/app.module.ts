@@ -16,6 +16,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -29,10 +31,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     ProductDetailComponent,
     LoginComponent,
+    UserComponent,
    
 
   ],
   imports: [
+
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -40,7 +44,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

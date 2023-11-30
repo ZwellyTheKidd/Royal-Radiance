@@ -96,8 +96,9 @@ app.listen(5038, () => {
 
 
                 response.send({
+                    success: true,
                     message: 'Login successful',
-                });
+                  });
 
             } catch (error) {
                 console.error("Error during login:", error);

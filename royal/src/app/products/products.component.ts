@@ -3,12 +3,13 @@ import { Product } from '../interface/product';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
-})
-export class ProductsComponent {
+})export class ProductsComponent {
 
   products: Product[] = [];
 
@@ -21,8 +22,18 @@ export class ProductsComponent {
 
   getProducts(): void {
     this.productService.getProducts()
-    .subscribe(products => this.products = products);
+      .subscribe(products => {
+        console.log('Product Data:', products);
+  
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
   }
+
+  
 
 
 

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
 
-  constructor(private authService:AuthenticationService){
+  constructor(private authService:AuthenticationService,private router: Router){
   }
 
   ngOnInit(){
@@ -29,12 +30,16 @@ export class LoginComponent implements OnInit {
   login(){
     if (this.formGroup.valid) {
       this.authService.login(this.formGroup.value).subscribe(result=>{
-        if(result.success){
-          console.log('result')
-          alert(result.message);
-        }else{
-          alert(result.message);
-        }
+        console.log(result); 
+          
+          if (result.success) {
+            console.log('success');
+            this.router.navigate(['/home']);
+          } else {
+            alert(result.message);
+            console.log('fail');
+          }
+   
       })
     }
   }

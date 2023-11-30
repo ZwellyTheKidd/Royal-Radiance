@@ -34,3 +34,9 @@
         display: block;
         margin: auto;
 }
+.b-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 600;
+}
