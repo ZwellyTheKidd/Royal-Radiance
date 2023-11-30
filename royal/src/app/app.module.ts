@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -30,6 +31,7 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     ProductDetailComponent,
     LoginComponent,
+    UserComponent,
    
 
   ],

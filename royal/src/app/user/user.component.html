@@ -1,0 +1,12 @@
+<div *ngIf="userData">
+    <p>User Info:</p>
+    <div>ID: {{ userData.id }}</div>
+    <div>Name: {{ userData.name }}</div>
+    <div>Email: {{ userData.email }}</div>
+  </div>
+  
+  <!-- Optionally, handle the case where the user is not authenticated -->
+  <div *ngIf="!userData">
+    <p>You are not authenticated. Please log in.</p>
+  </div>
+  
