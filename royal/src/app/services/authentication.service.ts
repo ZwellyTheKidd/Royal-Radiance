@@ -33,9 +33,9 @@ export class AuthenticationService {
           let errorMessage = 'An error occurred';
   
           if (error.status === 404) {
-            errorMessage = 'Incorrect Email, Please enter correct email';
+            errorMessage = 'Incorrect user credintials, Please enter correct credentials';
           } else if (error.status === 401) {
-            errorMessage = 'Invalid Password';
+            errorMessage = 'Incorrect user credintials, Please enter correct credentials';
           } else if (error.status === 500) {
             errorMessage = 'Internal Server Error';
           }
