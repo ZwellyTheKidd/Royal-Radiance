@@ -1,29 +1,14 @@
-// const express = require('express');
-// const Router = express.Router();
-// const User = require('../models/user');
-// const bcrypt = require('bcryptjs');
+const { Router } = require('express');
+const authController = require('../controllers/authController');
+const multer = require('multer');
 
-// app.post('/api/royalapp/register', async(req, res)=> {
-//     const salt = await bcrypt.genSalt(10)
-//     const hashedPassword=await bcrypt.hash(req.body.password,salt)
+const router = Router();
 
-//     const user = new User({
-//         name: req.body.name,
-//         email: req.body.email,
-//         password: hashedPassword,
-//     })
-
-// const result = await user.save()
-
-// const {password, ...data} = await result.JSON()
-//     res.send(await user.save())
-// })
+router.get('/api/royalapp/getusers', authController.getUsers);
+router.post('/api/royalapp/register',multer().none(), authController.register);
+router.post('/api/royalapp/login',multer().none(), authController.login);
+router.get('/api/royalapp/user', authController.currentUser);
+router.post('/api/royalapp/logout', authController.logout);
 
 
-
-app.post('/api/royalapp/register', async(req, res)=> {
-   const user = await UserActivation.
-    })
-
-
-// module.exports =Router;
+module.exports=router;
