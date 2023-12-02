@@ -1,0 +1,15 @@
+<div class="box">
+    <div class="product-image">
+        <img class="image-design" src={{cartItem.image}} alt="product-image">
+    </div>
+    <div class="product-detail">
+        <h1>{{ cartItem.productName }}</h1>
+        <p>Quantity</p>
+        <div class="btn-group">
+            <button class="subtraction">+</button>
+            <span class="outcome">{{ cartItem.qty }}</span>
+            <button class="addition">-</button>
+        </div>
+    </div>
+    <div class="product-price">R{{ cartItem.price }}</div>
+</div>

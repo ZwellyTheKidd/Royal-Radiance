@@ -1,0 +1,46 @@
+<app-header/>
+<div class="product-detail" *ngIf="product">
+    <div class="detail-header">
+        {{product.category}} / {{product.brand}} / {{product.title}}
+    </div>
+
+
+    <div class="detail-body ">
+        <div class="left h-100">
+            <div class="detail-img"><img src={{product.images[0]}}
+                    alt="" class="card-img-top img-fluid"></div>
+
+            <div class="detail-description">
+                <div class="prod-t">{{product.brand}} : {{product.title}}</div>
+                <div class="prod-c">{{product.description}}</div>
+                <div class="prod-i">Stock : {{product.stock}}</div>
+                <hr>
+                <div class="prod-s">Ships in 4 - 6 work days</div>
+                <hr>
+                <div class="prod-w">
+                    <ul>
+                        <li>Free Delivery Available.</li>
+                        <li>Hassle-Free Exchanges & Returns for 30 Days.</li>
+                        <li>24-Month Limited Warranty.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="right">
+            <div class="sale-detail">
+                <div class="prod-price">R {{ (product.price * 16.81).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</div>
+                <div class="prod-delivery">FREE DELIVERY</div>
+                <div class="prod-discount">R R {{ (product.price * 20).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</div>
+            </div>
+            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+              </svg> Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+
+

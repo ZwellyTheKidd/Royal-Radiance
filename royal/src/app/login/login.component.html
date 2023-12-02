@@ -1,0 +1,35 @@
+<div class="container">
+   <div class="card" style="width: 25em;">
+      <div class="img-container">
+         <img src="https://www.48hourslogo.com/48hourslogo_data/2019/12/03/91453_1575308284.png" class="card-img-top img-fluid"
+            alt="...">
+      </div>
+
+      <div class="card-body">
+         <div class="card-title">Login</div>
+
+         <form class="login" [formGroup]="formGroup" (ngSubmit)="login()">
+
+            <div class="mb-3">
+               <label for="email" class="form-label">Email address</label>
+               <input type="email" class="form-control" id="email" formControlName="email">
+               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+            <div class="mb-3">
+               <label for="password" class="form-label">Password</label>
+               <input type="password" class="form-control" id="password" formControlName="password">
+            </div>
+
+            <div class="b-options">
+               <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid">Submit</button>
+               <a routerLink="/user/register">
+                  New ? Sign Up
+                </a>
+            </div>
+         
+
+         </form>
+      </div>
+   </div>
+</div>
