@@ -23,6 +23,7 @@
 .icons-nav svg{
    height: 2em;
    width: 2em;
+   color: black;
 }
 .icons-nav svg:hover{
     height: 2.1em;
