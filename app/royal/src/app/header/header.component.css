@@ -1,0 +1,99 @@
+.navBar{
+    height: 6.5em;
+    background: whitesmoke;
+}
+.navBar .navUp{
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: white;
+    padding-inline: 5em;
+    align-items: center;
+    overflow: hidden;
+}
+.navBar .navUp img{
+    height: 5.7em;
+}
+.icons-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+.icons-nav svg{
+   height: 2em;
+   width: 2em;
+}
+.icons-nav svg:hover{
+    height: 2.1em;
+    width: 2.1em;
+}
+
+
+
+
+
+
+.navBar .navDown{
+    background: #64C5AE;
+    height: 40%;
+    padding-inline: 5em;
+    display: flex;
+    flex-direction: column;
+}
+.search-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#search-box{
+    
+    width: 70%;
+    padding-inline: 10em;
+    margin-top: .3em;
+    border-radius: 5px;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the dropdown button */
+.dropdown-button {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: .3em;
+}
+
+/* Style for the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 12.5em;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style for the dropdown items */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
