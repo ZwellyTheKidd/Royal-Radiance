@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RegisterService } from '../services/register.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +13,7 @@ export class RegisterComponent {
 
   formGroup!: FormGroup;
 
-  constructor(private registerService:RegisterService,private router: Router){
+  constructor(private registerService:RegisterService){
   }
 
   ngOnInit(){
@@ -34,7 +33,7 @@ export class RegisterComponent {
       this.registerService.register(this.formGroup.value).subscribe(result=>{
         if(result.success){
           console.log(result)
-          this.router.navigate(['/home']);
+          alert(result.message);
         }else{
           alert(result.message);
         }

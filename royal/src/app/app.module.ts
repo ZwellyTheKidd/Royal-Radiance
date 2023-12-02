@@ -18,8 +18,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
-import { CartComponent } from './cart/cart.component';
-import { CartItemsComponent } from './cart-items/cart-items.component';
 
 
 
@@ -34,9 +32,6 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
     ProductDetailComponent,
     LoginComponent,
     UserComponent,
-    CartComponent,
-    CartItemsComponent
-
    
 
   ],

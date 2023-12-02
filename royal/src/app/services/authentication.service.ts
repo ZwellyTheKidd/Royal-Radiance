@@ -33,9 +33,9 @@ export class AuthenticationService {
           let errorMessage = 'An error occurred';
   
           if (error.status === 404) {
-            errorMessage = 'Incorrect user credintials, Please enter correct credentials';
+            errorMessage = 'Incorrect Email, Please enter correct email';
           } else if (error.status === 401) {
-            errorMessage = 'Incorrect user credintials, Please enter correct credentials';
+            errorMessage = 'Invalid Password';
           } else if (error.status === 500) {
             errorMessage = 'Internal Server Error';
           }
@@ -67,7 +67,17 @@ export class AuthenticationService {
 
 
 
-
+  getUser(): Observable<UserData | null> {
+    return this.http.get<{ success: boolean, user: UserData }>(`${this.appURL}/user`).pipe(
+      map(response => response.success ? response.user : null),
+      catchError((error) => {
+        console.error('Error fetching user data:', error);
+        this.router.navigate(['/user/login']);
+        return of(null);
+      })
+    );
+  }
+  
 
   
 

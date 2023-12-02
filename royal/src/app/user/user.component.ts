@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserData } from '../interface/user';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -11,24 +10,23 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
   userData: UserData | null;
 
-  constructor(private authService: AuthenticationService, private router: Router) {
+  constructor(private authService: AuthenticationService) {
     this.userData = null;
   }
 
   ngOnInit(): void {
-  
+    this.getUser();
   }
 
-  checkUser(): void {
-    this.authService.checkUser().subscribe((userData) => {
+  getUser(): void {
+    this.authService.getUser().subscribe((userData) => {
       if (!userData) {
         // Redirect to login page if not authenticated
-        this.router.navigate(['user/login']);
+        // Optionally, you can handle this case in your template as well
+        // and show a message or redirect to the login page.
       } else {
-        // Redirect to user page if authenticated
-        this.router.navigate(['user']);
+        this.userData = userData;
       }
     });
   }
-
 }
