@@ -25,7 +25,7 @@ export class AuthenticationService {
   //user login method
 
   login(data: LoginData): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(this.appURL + '/login', data)
+    return this.http.post<LoginResponse>(this.appURL + '/login', data ,{withCredentials: true})
       .pipe(
         catchError((error: HttpErrorResponse) => {
           console.error('Error:', error);
@@ -50,12 +50,33 @@ export class AuthenticationService {
 
 
   getUser(): Observable<UserData | null> {
-    return this.http.get<{ success: boolean, user: UserData }>(`${this.appURL}/user`).pipe(
-      map(response => response.success ? response.user : null),
+
+    return this.http.get<any>(this.appURL+ '/user', {withCredentials: true})
+    .pipe(
+      map(response => response),
+
       catchError((error) => {
+
         console.error('Error fetching user data:', error);
-        this.router.navigate(['/user/login']);
+        this.router.navigate(['/login']);
         return of(null);
+
+      })
+    );
+  }
+
+  displayName(): Observable<UserData | null> {
+
+    return this.http.get<any>(this.appURL+ '/user', {withCredentials: true})
+    .pipe(
+      map(response => response),
+
+      catchError((error) => {
+
+        console.error('Error fetching user data:', error);
+
+        return of(null);
+
       })
     );
   }

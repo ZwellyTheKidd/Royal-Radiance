@@ -34,15 +34,14 @@ export class ProductService {
       catchError(this.handleError<Product | Product[]>(`getProduct id=${id}`))
     );
   }
+  
 
   searchProduct(searchTerm?: string): Observable<Product[]> {
     let url = this.productURL;
-  
     // Append the search term to the URL if provided
     if (searchTerm) {
       url += `/search?q=${searchTerm}`;
     }
-  
     return this.http.get<any>(url)
       .pipe(
         map(response => response.products),
@@ -50,18 +49,22 @@ export class ProductService {
         catchError(this.handleError<Product[]>('searchProduct', []))
       );
   }
-  
-  
-  
 
 
 
 
-  
+
+
+
+
+
+
+
 
   private log(message: string): void {
     console.log(message);
   }
+
 
   private handleError<T>(operation = 'operation', result?: T): (error: any) => Observable<T> {
     return (error: any): Observable<T> => {

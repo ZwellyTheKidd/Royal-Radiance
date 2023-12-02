@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../interface/product';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
-
 
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
-})export class ProductsComponent {
+})export class ProductsComponent implements OnInit{
 
   products: Product[] = [];
 
-    constructor(private productService: ProductService, private router: Router) { }
+    constructor(private productService: ProductService, private router: Router,) { }
 
 
   ngOnInit(): void {
     this.getProducts();
+  
   }
 
   getProducts(): void {
@@ -32,6 +32,8 @@ import { Router } from '@angular/router';
         }
       });
   }
+
+
 
   
 

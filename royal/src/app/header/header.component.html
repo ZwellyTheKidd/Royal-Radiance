@@ -6,6 +6,11 @@
       <img src="https://www.48hourslogo.com/48hourslogo_data/2019/12/03/91453_1575308284.png" alt="">
     </a>
 
+    <div *ngIf="userData?.name">
+      <!-- The content inside this div will only be displayed if showDiv is true -->
+      <p>Welcome {{userData?.name}}</p>
+    </div>
+
     <div class="icons-nav">
 
       <a routerLink="/cart">

@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
 
   login(){
     if (this.formGroup.valid) {
-      this.authService.login(this.formGroup.value).subscribe(result=>{
+      this.authService.login(this.formGroup.value)
+      
+      .subscribe(result=>{
         console.log(result); 
-          
+      
           if (result.success) {
             console.log('success');
             this.router.navigate(['/home']);
