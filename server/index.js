@@ -27,18 +27,26 @@ app.listen(5038, () => {
             console.error("Error connecting to the database:", error);
             return;
         }
-
         database = client.db(DATABASE_NAME);
         collection = database.collection("royalcollection");
         console.log("connection to the database successful");
 
 
-        // get method - get from database
+
+
+
+
+        // get users from database
         app.get('/api/royalapp/getusers', (request, response) => {
             collection.find({}).toArray((error, result) => {
                 response.send(result);
             });
         });
+
+
+
+
+
 
         //  register user  to the database
         app.post('/api/royalapp/register', multer().none(), async (request, response) => {
@@ -54,13 +62,18 @@ app.listen(5038, () => {
                 });
 
 
-                const successMessage = "User registered successfully";
-                response.send({ success: true, message: successMessage });
+                // const successMessage = "User registered successfully";
+                // response.send({ success: true, message: successMessage });
             });
         });
 
-        //  login user  to the database
 
+
+
+
+
+
+        //  login user  to the database
         app.post('/api/royalapp/login', multer().none(), async (request, response) => {
             ` `
             console.log('Login route reached'); // Add this line
@@ -108,7 +121,11 @@ app.listen(5038, () => {
             }
         });
 
-        //  authicated users 
+
+
+
+
+        //  check current user 
         app.get('/api/royalapp/user', async (request, response) => {
             try {
                 const cookie = request.cookies['jwt']
@@ -135,7 +152,11 @@ app.listen(5038, () => {
         });
 
 
+
+
+
         //  logout user
+
         app.post('/api/royalapp/logout', (request, response) => {
             response.cookie('jwt', '', { maxAge: 0 })
 

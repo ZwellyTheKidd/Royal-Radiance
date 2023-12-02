@@ -47,24 +47,6 @@ export class AuthenticationService {
 
 
 
-  // check if user is logged in
-  checkUser(): Observable<UserData | null> {
-    const jwtCookie = document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*=\s*([^;]*).*$)|^.*$/, '$1');
-  
-    if (!jwtCookie) {
-      this.router.navigate(['user/login']);
-      return of(null);
-    }
-  
-    return this.http.get<{ success: boolean, user: UserData }>(`${this.appURL}/user`).pipe(
-      map(response => response.success ? response.user : null),
-      catchError((error) => {
-        this.router.navigate(['/user/login']);
-        return of(null);
-      })
-    );
-  }
-
 
 
   getUser(): Observable<UserData | null> {

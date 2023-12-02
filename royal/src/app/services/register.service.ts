@@ -1,6 +1,6 @@
-import { HttpClient ,HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable ,throwError  } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 import { Register } from '../interface/register';
 
@@ -15,14 +15,14 @@ export class RegisterService {
 
   private appURL = 'http://localhost:5038/api/royalapp';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
-  register(data:Register):Observable<LoginResponse>{
-    return this.http.post<LoginResponse>(this.appURL + '/register', data)
+  register(data: Register): void {
+    this.http.post(this.appURL + '/register', data)
   }
 
-  
+
 
 
 
