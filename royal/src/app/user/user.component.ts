@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserData } from '../interface/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class UserComponent implements OnInit{
   userData: UserData | null = null;
 
 
-  constructor(private authService:AuthenticationService,){}
+  constructor(private authService:AuthenticationService,private router:Router){}
 
   ngOnInit(): void {
     this.getCurrentUser()
@@ -34,6 +35,20 @@ export class UserComponent implements OnInit{
         console.log('error');
       });
   }
+
+
+
+logOut(): void {
+  this.authService.logOut().subscribe(
+    () => {
+      // Redirect to the login page or perform other actions after successful logout
+      this.router.navigate(['/login']);
+    },
+    (error) => {
+      console.error('Logout failed', error);
+    }
+  );
+}
 
 
 

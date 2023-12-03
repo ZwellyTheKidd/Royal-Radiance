@@ -65,6 +65,21 @@ export class AuthenticationService {
     );
   }
 
+
+
+
+
+  logOut():Observable<any> {
+    return this.http.post(this.appURL+ '/logout', null , {withCredentials: true})
+  }
+
+
+
+
+
+
+
+
   displayName(): Observable<UserData | null> {
 
     return this.http.get<any>(this.appURL+ '/user', {withCredentials: true})
