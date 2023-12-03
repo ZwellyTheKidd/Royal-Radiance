@@ -34,3 +34,6 @@
         display: block;
         margin: auto;
 }
+input::placeholder{
+    color: rgba(128, 128, 128, 0.502);
+}

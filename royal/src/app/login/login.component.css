@@ -40,3 +40,7 @@
     justify-content: space-between;
     font-weight: 600;
 }
+
+input::placeholder{
+    color: rgba(128, 128, 128, 0.502);
+}
