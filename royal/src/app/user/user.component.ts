@@ -26,7 +26,6 @@ export class UserComponent implements OnInit{
       .subscribe(userData => {
         if (userData !== null) {
           this.userData = userData;
-          console.log('user Data:', this.userData);
         } else {
           console.log('User data is null');
         }

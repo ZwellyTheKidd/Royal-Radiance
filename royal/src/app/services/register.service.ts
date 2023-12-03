@@ -18,11 +18,18 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
 
-  register(data: Register): void {
-    this.http.post(this.appURL + '/register', data)
+  register(data:Register):Observable<LoginResponse>{
+    return this.http.post<LoginResponse>(this.appURL + '/register', data)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error:', error);
+
+        let errorMessage = 'An error occurred';
+        // return throwError({ success: false, message: errorMessage });
+        return of({ success: false, message: errorMessage });
+      })
+    );
   }
-
-
 
 
 

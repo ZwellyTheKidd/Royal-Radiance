@@ -29,11 +29,17 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  
   register(){
-    if (this.formGroup.valid) {
-      this.registerService.register(this.formGroup.value)
     
-      this.router.navigate(['/login']);
+    if (this.formGroup.valid) {
+      this.registerService.register(this.formGroup.value).subscribe(result=>{
+        if(result.success){
+          this.router.navigate(['/login']);
+        }else{
+          alert(result.message);
+        }
+      })
     }
   }
 

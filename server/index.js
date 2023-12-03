@@ -28,7 +28,7 @@ app.listen(5038, () => {
             return;
         }
         database = client.db(DATABASE_NAME);
-        collection = database.collection("royalcollection");
+        collection = database.collection("users");
         console.log("connection to the database successful");
 
 
@@ -62,8 +62,8 @@ app.listen(5038, () => {
                 });
 
 
-                // const successMessage = "User registered successfully";
-                // response.send({ success: true, message: successMessage });
+                const successMessage = "User registered successfully";
+                response.send({ success: true, message: successMessage });
             });
         });
 
