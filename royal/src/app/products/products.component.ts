@@ -8,23 +8,133 @@ import { Router } from '@angular/router';
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
-})export class ProductsComponent implements OnInit{
+}) export class ProductsComponent implements OnInit {
+
 
   products: Product[] = [];
 
-    constructor(private productService: ProductService, private router: Router,) { }
+
+  constructor(private productService: ProductService, private router: Router,) { }
 
 
   ngOnInit(): void {
     this.getProducts();
-  
+
   }
 
   getProducts(): void {
     this.productService.getProducts()
       .subscribe(products => {
         console.log('Product Data:', products);
-  
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+
+
+  // get laptops category
+  getLaptops(): void {
+    this.productService.getLaptops()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+
+  // get smartphones category
+  getsmartphones(): void {
+    this.productService.getsmartphones()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+
+  // get fragrances category
+  getfragrances(): void {
+    this.productService.getfragrances()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+  // get skincare category
+  getskincare(): void {
+    this.productService.getskincare()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+  // get womensshoes category
+  getwomensshoes(): void {
+    this.productService.getwomensshoes()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+  // get mensshoes category
+  getmensshoes(): void {
+    this.productService.getmensshoes()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+  // get sunglasses category
+  getsunglasses(): void {
+    this.productService.getsunglasses()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
+        if (Array.isArray(products)) {
+          this.products = products;
+        } else {
+          console.error('Invalid response format. Expected an array of products.');
+        }
+      });
+  }
+  // get automotive category
+  getautomotive(): void {
+    this.productService.getautomotive()
+      .subscribe(products => {
+        console.log('Product Data:', products);
+
         if (Array.isArray(products)) {
           this.products = products;
         } else {
@@ -35,7 +145,11 @@ import { Router } from '@angular/router';
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -43,9 +157,9 @@ import { Router } from '@angular/router';
     console.log('Navigating to product details with ID:', productId);
     this.router.navigate(['/products', productId]);
   }
-  
 
 
-  
+
+
 
 }

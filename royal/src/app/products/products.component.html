@@ -1,4 +1,5 @@
 <app-header/>
+
 <div class="products-body">
 
 
@@ -17,19 +18,18 @@
                     </svg></button>
                 <!-- Dropdown content -->
                 <div class="dropdown-content">
-                    <!-- Dropdown items (replace these with your categories) -->
-                    <a href="#">smartphones</a>
-                    <a href="#">laptops</a>
-                    <a href="#">fragrances</a>
-                    <a href="#">skincare</a>
-                    <a href="#">groceries</a>
-                    <a href="#">smartphones</a>
-                    <a href="#">womens-shoes</a>
-                    <a href="#">mens-shoes</a>
-                    <a href="#">sunglasses</a>
-                    <a href="#">automotive</a>
+        
+                    <a (click)="getProducts()">All Categories</a>
+                    <a (click)="getsmartphones()">smartphones</a>
+                    <a (click)="getLaptops()">laptops</a>
+                    <a (click)="getfragrances()">fragrances</a>
+                    <a (click)="getskincare()">skincare</a>
+                    <a (click)="getwomensshoes()">womens-shoes</a>
+                    <a (click)="getmensshoes()">mens-shoes</a>
+                    <a (click)="getsunglasses()">sunglasses</a>
+                    <a (click)="getautomotive()">automotive</a>
                 
-                    <!-- Add more categories as needed -->
+
                 </div>
             </div>
 
@@ -42,13 +42,12 @@
                     </svg></button>
                 <!-- Dropdown content -->
                 <div class="dropdown-content">
-                    <!-- Dropdown items (replace these with your categories) -->
-                    <a href="#">Brand</a>
+           
                     <a href="#">Price: Low to High</a>
                     <a href="#">Price: High to Low</a>
                     <a href="#">Title: Asc</a>
                     <a href="#">Title: Desc</a>
-                    <!-- Add more categories as needed -->
+       
                 </div>
             </div>
 

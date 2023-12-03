@@ -10,7 +10,7 @@ import { Product } from '../interface/product';
 })
 export class ProductService {
 
-  private productURL = 'https://dummyjson.com/products'; // Corrected URL with protocol
+  private productURL = 'https://dummyjson.com/products/'; // Corrected URL with protocol
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,6 +18,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+
+  // get all categories - 
   getProducts(): Observable<Product[]> {
     return this.http.get<any>(this.productURL) // Use 'any' as the type for the response
       .pipe(
@@ -26,6 +28,91 @@ export class ProductService {
         catchError(this.handleError<Product[]>('getProducts', []))
       );
   }
+
+
+
+  // categories - laptops
+  getLaptops(): Observable<Product[]> {
+    return this.http.get<any>(this.productURL+'/category/laptops') // Use 'any' as the type for the response
+      .pipe(
+        map(response => response.products), // Extract the 'products' array from the response
+        tap(_ => this.log('fetched products')),
+        catchError(this.handleError<Product[]>('getProducts', []))
+      );
+  }
+   // categories - smartphones
+   getsmartphones(): Observable<Product[]> {
+    return this.http.get<any>(this.productURL+'/category/smartphones') // Use 'any' as the type for the response
+      .pipe(
+        map(response => response.products), // Extract the 'products' array from the response
+        tap(_ => this.log('fetched products')),
+        catchError(this.handleError<Product[]>('getProducts', []))
+      );
+  }
+
+    // categories - fragrances
+    getfragrances(): Observable<Product[]> {
+      return this.http.get<any>(this.productURL+'/category/fragrances') // Use 'any' as the type for the response
+        .pipe(
+          map(response => response.products), // Extract the 'products' array from the response
+          tap(_ => this.log('fetched products')),
+          catchError(this.handleError<Product[]>('getProducts', []))
+        );
+    }
+     // categories - skincare
+     getskincare(): Observable<Product[]> {
+      return this.http.get<any>(this.productURL+'/category/skincare') // Use 'any' as the type for the response
+        .pipe(
+          map(response => response.products), // Extract the 'products' array from the response
+          tap(_ => this.log('fetched products')),
+          catchError(this.handleError<Product[]>('getProducts', []))
+        );
+    }
+      // categories - womens-shoes
+      getwomensshoes(): Observable<Product[]> {
+        return this.http.get<any>(this.productURL+'/category/womens-shoes') // Use 'any' as the type for the response
+          .pipe(
+            map(response => response.products), // Extract the 'products' array from the response
+            tap(_ => this.log('fetched products')),
+            catchError(this.handleError<Product[]>('getProducts', []))
+          );
+      }
+       // categories - mens-shoes
+       getmensshoes(): Observable<Product[]> {
+        return this.http.get<any>(this.productURL+'/category/mens-shoes') // Use 'any' as the type for the response
+          .pipe(
+            map(response => response.products), // Extract the 'products' array from the response
+            tap(_ => this.log('fetched products')),
+            catchError(this.handleError<Product[]>('getProducts', []))
+          );
+      }
+        // categories - sunglasses
+        getsunglasses(): Observable<Product[]> {
+          return this.http.get<any>(this.productURL+'/category/sunglasses') // Use 'any' as the type for the response
+            .pipe(
+              map(response => response.products), // Extract the 'products' array from the response
+              tap(_ => this.log('fetched products')),
+              catchError(this.handleError<Product[]>('getProducts', []))
+            );
+        }
+         // categories - automotive
+         getautomotive(): Observable<Product[]> {
+          return this.http.get<any>(this.productURL+'/category/automotive') // Use 'any' as the type for the response
+            .pipe(
+              map(response => response.products), // Extract the 'products' array from the response
+              tap(_ => this.log('fetched products')),
+              catchError(this.handleError<Product[]>('getProducts', []))
+            );
+        }
+
+
+
+
+
+
+
+
+
   
   getProduct(id: number): Observable<Product | Product[]> {
     const url = `${this.productURL}/${id}`;
