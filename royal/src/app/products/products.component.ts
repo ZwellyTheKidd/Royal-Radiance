@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 
 
   products: Product[] = [];
+  isAscendingOrder = true;
 
 
   constructor(private productService: ProductService, private router: Router,) { }
@@ -144,10 +145,37 @@ import { Router } from '@angular/router';
   }
 
 
+  sortAsc(): void {
+    this.isAscendingOrder = true;
 
+    this.products.sort((a, b) => {
+      return a.title.localeCompare(b.title);
+    });
+  }
 
+  sortDesc(): void {
+    this.isAscendingOrder = false;
 
+    this.products.sort((a, b) => {
+      return b.title.localeCompare(a.title);
+    });
+  }
 
+  sortPriceHighToLow(): void {
+    this.isAscendingOrder = false;
+
+    this.products.sort((a, b) => {
+      return b.price - a.price;
+    });
+  }
+
+  sortPriceLowToHigh(): void {
+    this.isAscendingOrder = true;
+
+    this.products.sort((a, b) => {
+      return a.price - b.price;
+    });
+  }
 
 
 
