@@ -1,0 +1,127 @@
+.product-detail{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding-inline: 5em;
+    margin-top: .4em;
+    margin-bottom: 6em;
+}
+.detail-header {
+    font-weight: 600;
+}
+.detail-body{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2%;
+    height: 27em;
+}
+.detail-body .left{
+    width: 68%;
+    background: white;
+    padding: 2em;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
+}
+.detail-img{
+    border: 0.125em solid rgb(199,200,201);
+    border-radius: .3em;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.card-img-top {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+.detail-description{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.detail-description .prod-t{
+    font-weight: 600;
+    font-size: large;
+}
+.detail-description .prod-c{
+    font-size: small;
+    font-weight: 500;
+    color: #0D78BF;
+}
+.detail-description .prod-s{
+    font-weight: 600;
+}
+.detail-description .prod-i{
+    font-weight: 500;
+}
+.detail-description .prod-w{
+    font-size: small;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+.detail-body .right{
+    width: 30%;
+    background: white;
+    padding: 4em;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(87,81,81,0.43);
+}
+
+.right .prod-price{
+    font-weight: 600;
+    font-size: xx-large;
+}
+.right .prod-delivery{
+    font-weight: 600;
+    font-size: large;
+}
+.right .sale-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.right .prod-discount{
+    font-weight: 500;
+    font-size: large;
+    color: gray;
+    text-decoration: line-through;
+}
+
+.right button{
+    padding: 5%;
+    border-radius: .5em;
+    background: #1A8744;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+}
+button svg{
+    height: 1.5em;
+    width: 1.5em;
+}
