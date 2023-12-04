@@ -110,3 +110,44 @@
     background-color: white;
     color: #64C5AE;
 }
+
+.btn-qauntity {
+    width: 80px;
+    height: 30px;
+    background-color:#64C5AE;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    border: 1px solid #64C5AE;
+}
+
+.btn-qauntity span {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.btn-qauntity .minus,
+.btn-qauntity .plus {
+    flex: 1;
+}
+
+.btn-qauntity .minus {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    color: #64C5AE;
+}
+
+.btn-qauntity .plus {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #64C5AE;
+}

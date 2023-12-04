@@ -34,4 +34,16 @@ export class CartComponent implements OnInit {
   emptyCart() {
     this.cartService.removeAllCart()
   }
+
+  increaseQuantity(item: Cart): void {
+    this.cartService.increaseQuantity(item);
+  }
+
+  decreaseQuantity(item: Cart): void {
+    this.cartService.decreaseQuantity(item);
+  }
+
+  getTotalPrice(): number {
+    return this.cartService.getTotalPrice();
+  }
 }

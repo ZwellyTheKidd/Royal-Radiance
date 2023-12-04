@@ -32,7 +32,13 @@
                         <td><img style="width: 120px;padding: 10px" src={{item.images[0]}} alt="product image"></td>
                         <td style="width: 25%; padding: 10px">{{item.description}}</td>
                         <td style="width: 10%; padding: 10px">R{{item.price}}</td>
-                        <td style="width: 10%; padding: 10px">{{item.quantity}}</td>
+                        <td style="width: 10%; padding: 10px">
+                            <div class="btn-qauntity">
+                                <button (click)="decreaseQuantity(item)" class="minus">-</button>
+                                <span>{{item.quantity * 1}}</span>
+                                <button (click)="increaseQuantity(item)" class="plus">+</button>
+                            </div>    
+                        </td>
                         <td style="width: 10%; padding: 10px">{{item.total}}</td>
                         <td>
                             <button class="delete" (click)="removeItem(item)">
@@ -41,6 +47,7 @@
                                   </svg>
                             </button>
                         </td>
+                        <hr style="width: 100%;">
                     </tr>
                     <tr>
                         <td colspan="4"></td>
