@@ -10,12 +10,12 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: ProductsComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'home', component: ProductsComponent, title: 'Home'},
+  { path: 'products/:id', component: ProductDetailComponent, title: 'Product Details'},
+  { path: 'register', component: RegisterComponent, title: 'Register'},
+  { path: 'login', component: LoginComponent, title: 'Login'},
+  { path: 'user', component: UserComponent, title: 'User Profile'},
+  { path: 'cart', component: CartComponent, title: 'Cart'},
 ]
 
 @NgModule({
