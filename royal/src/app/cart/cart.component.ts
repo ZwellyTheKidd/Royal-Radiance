@@ -13,6 +13,8 @@ export class CartComponent implements OnInit {
 
   public products: any = []
   public grandTotal!: number;
+  public cartItems: Cart[] = []
+  cartTotal = 0
 
   constructor(
     private msg: MessageService,
@@ -45,5 +47,12 @@ export class CartComponent implements OnInit {
 
   getTotalPrice(): number {
     return this.cartService.getTotalPrice();
+  }
+
+  calcCartTotal() {
+    this.cartTotal = 0
+    this.cartItems.forEach(item => {
+      this.cartTotal += (item.quantity * item.price)
+    })
   }
 }

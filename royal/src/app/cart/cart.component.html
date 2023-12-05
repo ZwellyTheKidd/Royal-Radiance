@@ -26,10 +26,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of products; let i = index">
+                    <tr class="table-row" *ngFor="let item of products; let i = index">
                         <td>{{i+1}}</td>
-                        <td style="width: 20%;padding: 10px;">{{item.title}}</td>
-                        <td><img style="width: 120px;padding: 10px" src={{item.images[0]}} alt="product image"></td>
+                        <td style="width: 15%;padding: 10px;">{{item.title}}</td>
+                        <td style="width: 20%;padding: 10px;"><img style="width: 120px;padding: 10px" src={{item.images[0]}} alt="product image"></td>
                         <td style="width: 25%; padding: 10px">{{item.description}}</td>
                         <td style="width: 10%; padding: 10px">R{{item.price}}</td>
                         <td style="width: 10%; padding: 10px">
