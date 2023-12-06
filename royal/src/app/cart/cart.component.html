@@ -1,46 +1,69 @@
-<app-header/>
+<app-header></app-header>
 
-<div class="cart-container">
+<div *ngIf="products.length == 0 " class="alert-warning">
+    <span class="container">
+        <img src="https://www.48hourslogo.com/48hourslogo_data/2019/12/03/91453_1575308284.png" alt="">
+        <h2>You cart is empty.</h2>
+        <p>Add an item to it now.</p>
+        <a routerLink="/">Shop now</a>
+    </span>
+</div>
+
+<div *ngIf="products.length != 0" class="cart-container">
     <div class="product">
         <div class="cart-wrapper">
-            <div class="cart">
-                <a href="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-                      </svg>
-                      <span>Continue shopping</span>
-                </a> 
-                <div class="wrapper">
-                    <h1>Shopping cart</h1>
-                    <div class="cart-detail">
-                        <div class="box">
-                            <div class="product-image">
-                                <img class="image-design" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="product-image">
-                            </div>
-                            <div class="product-detail">
-                                <h1>Diamonds rings</h1>
-                                <p>Quantity</p>
-                            </div>
-                            <div class="product-price">Product price</div>
-                        </div>
-                        <div class="box">
-                            <div class="product-image">
-                                <img class="image-design" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="product-image">
-                            </div>
-                            <div class="product-detail">Product detail</div>
-                            <div class="product-price">Product price</div>
-                        </div>
-                        <div class="box">
-                            <div class="product-image">
-                                <img class="image-design" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="product-image">
-                            </div>
-                            <div class="product-detail">Product detail</div>
-                            <div class="product-price">Product price</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="payment">2</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row" *ngFor="let item of products; let i = index">
+                        <td>{{i+1}}</td>
+                        <td style="width: 15%;padding: 10px;">{{item.title}}</td>
+                        <td style="width: 20%;padding: 10px;"><img style="width: 120px;padding: 10px" src={{item.images[0]}} alt="product image"></td>
+                        <td style="width: 25%; padding: 10px">{{item.description}}</td>
+                        <td style="width: 10%; padding: 10px">R{{item.price}}</td>
+                        <td style="width: 10%; padding: 10px">
+                            <div class="btn-qauntity">
+                                <button (click)="decreaseQuantity(item)" class="minus">-</button>
+                                <span>{{item.quantity * 1}}</span>
+                                <button (click)="increaseQuantity(item)" class="plus">+</button>
+                            </div>    
+                        </td>
+                        <td style="width: 10%; padding: 10px">{{item.total}}</td>
+                        <td>
+                            <button class="delete" (click)="removeItem(item)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                  </svg>
+                            </button>
+                        </td>
+                        <hr style="width: 100%;">
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td>
+                            <button (click)="emptyCart()" class="btn-empty">Empty cart</button>
+                        </td>
+                        <td>
+                            <button routerLink="/" class="btn-shop">Shop more</button>
+                        </td>
+                        <td>
+                            <button class="btn-checkout">Checkout</button>
+                        </td>
+                         <td><strong>Grand Total: R{{grandTotal}}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

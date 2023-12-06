@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable , of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Product } from '../interface/product';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,12 @@ import { Product } from '../interface/product';
 export class ProductService {
 
   private productURL = 'https://dummyjson.com/products/'; // Corrected URL with protocol
-
+  public productList: any[] = [ ];
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cartService: CartService) { }
 
 
   // get all categories - 
@@ -27,6 +28,10 @@ export class ProductService {
         tap(_ => this.log('fetched products')),
         catchError(this.handleError<Product[]>('getProducts', []))
       );
+
+      this.productList.forEach((a: any) => {
+        Object.assign(a, {quantity: 1, total: a.price })
+     });
   }
 
 
@@ -109,7 +114,10 @@ export class ProductService {
 
 
 
-
+        addToCart(product: any) {
+          this.cartService.addToCart(product) 
+      }
+    
 
 
 

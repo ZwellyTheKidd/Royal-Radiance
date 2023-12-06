@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../interface/product';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
   isAscendingOrder = true;
 
 
-  constructor(private productService: ProductService, private router: Router,) { }
+  constructor(private productService: ProductService, private router: Router,private cartService: CartService) { }
 
 
   ngOnInit(): void {
@@ -179,7 +180,9 @@ import { Router } from '@angular/router';
 
 
 
-
+  addToCart(product: any) {
+    this.cartService.addToCart(product) 
+}
 
   navigateProductDetails(productId: number): void {
     console.log('Navigating to product details with ID:', productId);

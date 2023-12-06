@@ -19,13 +19,27 @@
     display: flex;
     flex-direction: row;
     gap: 2em;
-   
 }
 .icons-nav svg{
    height: 2em;
    width: 2em;
-   color: black;
+}
 
+.icons-nav a {
+    color: black;
+}
+.icons-nav a {
+    text-decoration: none;
+}
+
+.icons-nav a .cart-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: #64C5AE;
+    font-size: 14px;
+    text-decoration: none;
 }
 .icons-nav svg:hover{
     height: 2.1em;
@@ -99,10 +113,4 @@
 /* Show the dropdown content when the dropdown button is clicked */
 .dropdown:hover .dropdown-content {
     display: block;
-}
-.profile{
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    gap: .2em;
 }

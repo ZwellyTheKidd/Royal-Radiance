@@ -14,11 +14,11 @@ import { ProductsComponent } from './products/products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { CartComponent } from './cart/cart.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
+import { CartComponent } from './cart/cart.component';
 
 
 

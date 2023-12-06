@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthenticationService } from '../services/authentication.service';
 import { UserData } from '../interface/user';
+import { CartService } from '../services/cart.service';
 
 
 @Component({
@@ -12,15 +13,20 @@ import { UserData } from '../interface/user';
 export class HeaderComponent implements OnInit {
 
   userData: UserData | null = null;
-
+  public totalItem: number = 0;
   
-  constructor(private authService:AuthenticationService) { }
+  constructor(private authService:AuthenticationService, private cartService: CartService) { }
 
 
 
   ngOnInit(): void {
     this.getCurrentUser();
-  
+
+    this.cartService.getProducts()
+    .subscribe(res => {
+      this.totalItem = res.length
+    })
+    
   }
 
   getCurrentUser(): void {
