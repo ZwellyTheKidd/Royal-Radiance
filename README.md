@@ -39,6 +39,7 @@ Install dependencies:
 cd royal
 npm install
 
+cd ..
 cd server
 npm install
 
@@ -48,12 +49,14 @@ Start the applications:
 Start the frontend:
 
 
+cd ..
 cd royal
 ng serve
 Access the application at http://localhost:4200.
 
 Start the backend:
 
+cd ..
 cd server
 npm start
 The backend will be running at http://localhost:5038/api/royalapp/getUsers.
