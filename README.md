@@ -26,11 +26,13 @@ Project Structure
 frontend/: Angular frontend application.
 backend/: Node.js and Express backend server.
 dummy-api/: Fake API using DummyJSON for testing purposes.
+
+
 Getting Started
 Clone the repository:
 
-
 git clone[ https://github.com/your-username/e-commerce-app.git](https://github.com/ZwellyTheKidd/Royal-Radiance)
+
 Install dependencies:
 
 
@@ -58,8 +60,13 @@ The backend will be running at http://localhost:5038/api/royalapp/getUsers.
 
 
 
+
 Contributing
+
 If you'd like to contribute to this project, please follow our contribution guidelines.
 
+
 License
+
 This project is licensed under the MIT License - see the LICENSE.md file for details.
+
