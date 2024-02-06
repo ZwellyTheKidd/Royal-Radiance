@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -34,6 +35,7 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     UserComponent,
     CartComponent,
+    CheckoutComponent,
    
 
   ],
