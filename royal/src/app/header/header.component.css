@@ -33,10 +33,9 @@
 }
 
 .icons-nav a .cart-badge {
-    width: 50px;
-    height: 50px;
+    height: 5em;
     border-radius: 50%;
-    padding: 2px;
+    padding: 0.1em 0.3em 0.1em 0.3em;
     background-color: #64C5AE;
     font-size: 14px;
     text-decoration: none;
