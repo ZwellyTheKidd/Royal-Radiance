@@ -15,14 +15,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Sr No</th>
+                        <th>Item</th>
                         <th>Product Name</th>
                         <th>Product Image</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Action</th>
+                        <th>Remove Item</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,14 +30,6 @@
                         <td style="width: 20%;padding: 10px;"><img style="width: 120px;padding: 10px" src={{item.images[0]}} alt="product image"></td>
                         <td style="width: 25%; padding: 10px">{{item.description}}</td>
                         <td style="width: 10%; padding: 10px">R{{item.price}}</td>
-                        <td style="width: 10%; padding: 10px">
-                            <div class="btn-qauntity">
-                                <button (click)="decreaseQuantity(item)" class="minus">-</button>
-                                <span>{{item.quantity * 1}}</span>
-                                <button (click)="increaseQuantity(item)" class="plus">+</button>
-                            </div>    
-                        </td>
-                        <td style="width: 10%; padding: 10px">{{item.total}}</td>
                         <td>
                             <button class="delete" (click)="removeItem(item)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -47,8 +37,8 @@
                                   </svg>
                             </button>
                         </td>
-                        <hr style="width: 100%;">
                     </tr>
+                    <hr style="width: 100%;">
                     <tr>
                         <td colspan="4"></td>
                         <td>
