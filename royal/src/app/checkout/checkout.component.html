@@ -1,1 +1,33 @@
-<div #paypalref></div>
+<app-header/>
+
+
+<div class="container">
+
+
+    <div class="summary" style="width: 70%;">
+        <h3 style="padding-bottom: 1em;display: flex;justify-content: center;font-weight: 700;">Order Summary</h3>
+
+        <div style="display: flex;flex-direction: row;justify-content: space-between;font-size: large;">
+            <div>
+                <p>3 Items</p>
+                <p>Delivery</p>
+            </div>
+
+            <div style="font-weight: 700;">
+                <p>R 2000</p>
+                <p>R 70</p>
+            </div>
+        </div>
+    </div>
+
+    <hr style="width: 70%;">
+
+    <div class="total" style="display: flex;flex-direction: row;justify-content: space-between;width: 70%;margin-bottom: 0.7em;font-weight: 700;">
+        <div>TO PAY:</div>
+        <div style="color: green;">R 2070</div>
+    </div>
+
+
+    <div style="width: 80%;" #paypalref></div>
+
+</div>
