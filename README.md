@@ -1,6 +1,6 @@
 Full-Stack E-commerce Application
 
-Welcome to the Full-Stack E-commerce Application repository! This project is a comprehensive e-commerce web application built using Angular for the frontend, Node.js with Express for the backend, MongoDB for the database, and JSON Web Tokens (JWT) for authentication. Additionally, a fake API powered by DummyJSON is used for testing purposes.
+Welcome to the Full-Stack E-commerce Application repository! This project is a comprehensive e-commerce web application built using Angular for the frontend, Node.js with Express for the backend, MongoDB for the database, and JSON Web Tokens (JWT) for authentication. Additionally, a fake API powered by DummyJSON is used for testing purposes and featuring seamless PayPal integration, .
 
 
 Features
