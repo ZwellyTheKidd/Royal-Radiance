@@ -9,12 +9,12 @@
 
         <div style="display: flex;flex-direction: row;justify-content: space-between;font-size: medium;">
             <div>
-                <p>3 Items</p>
+                <p>{{cartLength}} Items</p>
                 <p>Delivery</p>
             </div>
 
             <div style="font-weight: 600;">
-                <p>R 2000</p>
+                <p>R {{grandTotal}}</p>
                 <p>R 70</p>
             </div>
         </div>
@@ -24,7 +24,7 @@
 
     <div class="total" style="display: flex;flex-direction: row;justify-content: space-between;width: 70%;margin-bottom: 0.7em;font-weight: 600;font-size: medium;">
         <div>TO PAY:</div>
-        <div style="color: green;">R 2070</div>
+        <div style="color: green;">R {{delivery}}</div>
     </div>
 
 

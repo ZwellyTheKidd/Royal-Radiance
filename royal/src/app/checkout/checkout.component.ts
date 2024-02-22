@@ -9,6 +9,10 @@ export class CheckoutComponent {
 
   @ViewChild('paypalref', { static: true }) private paypalRef!: ElementRef;
 
+  cartLength: number = 0;
+  grandTotal: number = 0;
+  delivery: number = 0;;
+
   ngOnInit(): void {
     window.paypal
      .Buttons({
@@ -46,6 +50,22 @@ export class CheckoutComponent {
 
      })
      .render(this.paypalRef.nativeElement);
+
+
+     
+
+     this.cartLength = parseInt(localStorage.getItem('cartLength') || '0', 10);
+    this.grandTotal = parseFloat(localStorage.getItem('grandTotal') || '0');
+
+    this.delivery=this.grandTotal+70;
+
+
+
+
+
+
+
+
   }
  
 

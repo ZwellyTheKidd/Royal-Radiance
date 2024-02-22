@@ -29,7 +29,7 @@
                         <td style="width: 15%;padding: 10px;">{{item.title}}</td>
                         <td style="width: 20%;padding: 10px;"><img style="width: 120px;padding: 10px" src={{item.images[0]}} alt="product image"></td>
                         <td style="width: 25%; padding: 10px">{{item.description}}</td>
-                        <td style="width: 10%; padding: 10px">R{{item.price}}</td>
+                        <td style="width: 10%; padding: 10px">R{{(item.price* 6.81).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</td>
                         <td>
                             <button class="delete" (click)="removeItem(item)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -45,12 +45,9 @@
                             <button (click)="emptyCart()" class="btn-empty">Empty cart</button>
                         </td>
                         <td>
-                            <button routerLink="/" class="btn-shop">Shop more</button>
+                            <button class="btn-checkout" (click)="goCheckout()">Checkout</button>
                         </td>
-                        <td>
-                            <button class="btn-checkout">Checkout</button>
-                        </td>
-                         <td><strong>Grand Total: R{{grandTotal}}</strong></td>
+                         <td><strong>Total: R{{(grandTotal * 6.81).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</strong></td>
                     </tr>
                 </tbody>
             </table>
