@@ -1,0 +1,25 @@
+version: '3'
+services:
+  backend:
+    build: ./server
+    ports:
+      - '5038:5038'
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./royal
+    ports:
+      - '4200:80'
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
