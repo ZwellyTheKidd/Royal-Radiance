@@ -11,7 +11,7 @@ const app = express();
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:4200']
+    origin: ['https://royal-radiance.vercel.app']
 }));
 app.use(express.json());
 
