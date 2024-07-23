@@ -13,7 +13,7 @@ import { of } from 'rxjs';
 })
 export class RegisterService {
 
-  private appURL = 'http://localhost:5038/api/royalapp';
+  private appURL = 'https://royal-radiance.onrender.com/api/royalapp';
 
   constructor(private http: HttpClient) { }
 
