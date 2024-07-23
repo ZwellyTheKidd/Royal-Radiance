@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthenticationService {
 
-  private appURL = 'http://localhost:5038/api/royalapp';
+  private appURL = 'https://royal-radiance.onrender.com/api/royalapp';
 
   constructor(private http:HttpClient,private router: Router) { }
 
