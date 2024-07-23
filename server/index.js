@@ -1,11 +1,10 @@
 const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 const cors = require('cors');
-const multer = require('multer'); // Add this line
+const multer = require('multer');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-
 
 const app = express();
 app.use(cookieParser());
@@ -21,133 +20,111 @@ const DATABASE_NAME = 'royaldb';
 let database;
 let collection;
 
-
-MongoClient.connect(CONNECTION_STRING, (error, client) => {
-    if (error) {
+async function connectToDatabase() {
+    try {
+        const client = new MongoClient(CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
+        await client.connect();
+        console.log("Connection to the database successful");
+        database = client.db(DATABASE_NAME);
+        collection = database.collection("users");
+        setupRoutes();
+    } catch (error) {
         console.error("Error connecting to the database:", error);
-        return;
     }
-    database = client.db(DATABASE_NAME);
-    collection = database.collection("users");
-    console.log("connection to the database successful");
+}
 
-
+function setupRoutes() {
     // get users from database
-    app.get('/api/royalapp/getusers', (request, response) => {
-        collection.find({}).toArray((error, result) => {
+    app.get('/api/royalapp/getusers', async (request, response) => {
+        try {
+            const result = await collection.find({}).toArray();
             response.send(result);
-        });
+        } catch (error) {
+            response.status(500).send({ message: "Error retrieving users" });
+        }
     });
 
-
-    //  register user  to the database
+    // register user to the database
     app.post('/api/royalapp/register', multer().none(), async (request, response) => {
-        collection.countDocuments({}, async (error, numOfDocs) => {
+        try {
+            const numOfDocs = await collection.countDocuments({});
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(request.body.password, salt);
 
-            collection.insertOne({
+            await collection.insertOne({
                 id: (numOfDocs + 1).toString(),
                 name: request.body.name,
                 email: request.body.email,
                 password: hashedPassword, // Use the hashed password
             });
 
-
-            const successMessage = "User registered successfully";
-            response.send({success: true, message: successMessage});
-        });
+            response.send({ success: true, message: "User registered successfully" });
+        } catch (error) {
+            response.status(500).send({ message: "Error registering user" });
+        }
     });
 
-
-    //  login user  to the database
+    // login user to the database
     app.post('/api/royalapp/login', multer().none(), async (request, response) => {
-        ` `
-        console.log('Login route reached'); // Add this line
-
+        console.log('Login route reached');
         try {
-            const user = await collection.findOne({email: request.body.email});
+            const user = await collection.findOne({ email: request.body.email });
 
             if (!user) {
-                return response.status(404).send({
-                    message: 'User not found'
-                });
+                return response.status(404).send({ message: 'User not found' });
             }
 
             const passwordMatch = await bcrypt.compare(request.body.password, user.password);
 
             if (!passwordMatch) {
-                return response.status(401).send({
-                    message: 'Invalid credentials'
-                });
+                return response.status(401).send({ message: 'Invalid credentials' });
             }
 
             // Send the user data without the password
-            const {password, ...userData} = user;
+            const { password, ...userData } = user;
 
-            // const token = jwt.sign({ id: userData.id }, process.env.JWT_SECRET);
-            const token = jwt.sign({id: userData.id}, "secret");
+            const token = jwt.sign({ id: userData.id }, "secret");
 
             response.cookie('jwt', token, {
                 httpOnly: true,
                 maxAge: 24 * 60 * 60 * 1000
-            })
-
-
-            response.send({
-                success: true,
-                message: 'Login successful',
             });
+
+            response.send({ success: true, message: 'Login successful' });
 
         } catch (error) {
             console.error("Error during login:", error);
-            response.status(500).send({
-                message: 'Internal Server Error'
-            });
+            response.status(500).send({ message: 'Internal Server Error' });
         }
     });
 
-
-    //  check current user
+    // check current user
     app.get('/api/royalapp/user', async (request, response) => {
         try {
-            const cookie = request.cookies['jwt']
-
-            const claims = jwt.verify(cookie, "secret")
+            const cookie = request.cookies['jwt'];
+            const claims = jwt.verify(cookie, "secret");
 
             if (!claims) {
-                return response.status(401).send({
-                    message: 'Unauthorized'
-                });
+                return response.status(401).send({ message: 'Unauthorized' });
             }
 
-            const user = await collection.findOne({id: claims.id});
-            const {password, ...userData} = await user;
+            const user = await collection.findOne({ id: claims.id });
+            const { password, ...userData } = user;
 
-            response.send(userData)
+            response.send(userData);
 
         } catch (error) {
-            return response.status(401).send({
-                message: 'Unauthorized'
-            });
+            return response.status(401).send({ message: 'Unauthorized' });
         }
-
     });
 
-
-    //  logout user
-
+    // logout user
     app.post('/api/royalapp/logout', (request, response) => {
-        response.cookie('jwt', '', {maxAge: 0})
+        response.cookie('jwt', '', { maxAge: 0 });
+        response.send({ message: 'Logout successful' });
+    });
+}
 
-        response.send({
-            message: 'Logout successful',
-        });
-
-    })
-
-
-});
+connectToDatabase();
 
 module.exports = app;
-
