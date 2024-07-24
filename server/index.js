@@ -92,7 +92,7 @@ app.listen(5038, () => {
                     httpOnly: true,
                     maxAge: 24 * 60 * 60 * 1000, // 1 day
                     secure: true, // Ensure this is only true if you're using HTTPS
-                    sameSite: 'None
+                    sameSite: 'None' // This is required for cross-site cookies
                 })
 
 
