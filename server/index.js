@@ -41,55 +41,23 @@ app.listen(5038, () => {
 
 
         //  register user  to the database
-        // app.post('/api/royalapp/register', multer().none(), async (request, response) => {
-        //     collection.countDocuments({}, async (error, numOfDocs) => {
-        //         const salt = await bcrypt.genSalt(10);
-        //         const hashedPassword = await bcrypt.hash(request.body.password, salt);
+        app.post('/api/royalapp/register', multer().none(), async (request, response) => {
+            collection.countDocuments({}, async (error, numOfDocs) => {
+                const salt = await bcrypt.genSalt(10);
+                const hashedPassword = await bcrypt.hash(request.body.password, salt);
 
-        //         collection.insertOne({
-        //             id: (numOfDocs + 1).toString(),
-        //             name: request.body.name,
-        //             email: request.body.email,
-        //             password: hashedPassword, // Use the hashed password
-        //         });
+                collection.insertOne({
+                    id: (numOfDocs + 1).toString(),
+                    name: request.body.name,
+                    email: request.body.email,
+                    password: hashedPassword, // Use the hashed password
+                });
 
 
-        //         const successMessage = "User registered successfully";
-        //         response.send({success: true, message: successMessage});
-        //     });
-        // });
-
-        //  register user  to the database
-         app.post('/api/royalapp/register', upload, async (request, response) => {
-        try {
-            const { email, name, password } = request.body;
-
-            // Check if the email already exists
-            const user = await collection.findOne({ email: email });
-
-            if (user) {
-                return response.status(400).send({ success: false, message: "Email already registered" });
-            }
-
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(password, salt);
-
-            const numOfDocs = await collection.countDocuments({});
-
-            await collection.insertOne({
-                id: (numOfDocs + 1).toString(),
-                name: name,
-                email: email,
-                password: hashedPassword, // Use the hashed password
+                const successMessage = "User registered successfully";
+                response.send({success: true, message: successMessage});
             });
-
-            const successMessage = "User registered successfully";
-            response.send({ success: true, message: successMessage });
-        } catch (error) {
-            console.error('Error registering user:', error);
-            response.status(500).send({ success: false, message: "Internal Server Error" });
-        }
-    });
+        });
 
 
         //  login user  to the database
