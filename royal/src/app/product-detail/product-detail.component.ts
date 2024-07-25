@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '../interface/product';
 import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,6 +17,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
+    private cartService: CartService
   ) { this.route.params.subscribe(params => {
     const productId = +params['id']; // Convert to a number
     this.fetchProductDetails(productId);
@@ -48,7 +50,9 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-
+  addToCart(product: any) {
+    this.cartService.addToCart(product) 
+}
 
 
 
