@@ -66,7 +66,7 @@ export class ProductService {
     }
      // categories - skincare
      getskincare(): Observable<Product[]> {
-      return this.http.get<any>(this.productURL+'/category/skincare') // Use 'any' as the type for the response
+      return this.http.get<any>(this.productURL+'/category/skin-care') // Use 'any' as the type for the response
         .pipe(
           map(response => response.products), // Extract the 'products' array from the response
           tap(_ => this.log('fetched products')),
@@ -102,7 +102,7 @@ export class ProductService {
         }
          // categories - automotive
          getautomotive(): Observable<Product[]> {
-          return this.http.get<any>(this.productURL+'/category/automotive') // Use 'any' as the type for the response
+          return this.http.get<any>(this.productURL+'/category/vehicle') // Use 'any' as the type for the response
             .pipe(
               map(response => response.products), // Extract the 'products' array from the response
               tap(_ => this.log('fetched products')),
